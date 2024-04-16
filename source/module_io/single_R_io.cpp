@@ -42,8 +42,8 @@ void ModuleIO::output_single_R(std::ofstream& ofs,
             ofs_tem1.open(tem1.str().c_str());
         }
     }
-
-    line = new T[GlobalV::NLOCAL];
+std::vector<T> line(GlobalV::NLOCAL);
+    //line = new T[GlobalV::NLOCAL];
     for(int row = 0; row < GlobalV::NLOCAL; ++row)
     {
         ModuleBase::GlobalFunc::ZEROS(line, GlobalV::NLOCAL);
@@ -55,7 +55,7 @@ void ModuleIO::output_single_R(std::ofstream& ofs,
             {
                 for (auto &value : iter->second)
                 {
-                    line[value.first] = value.second;
+                    line.at(value.first) = value.second;//line[value.first] = value.second;
                 }
             }
         }
@@ -94,8 +94,8 @@ void ModuleIO::output_single_R(std::ofstream& ofs,
 
     }
 
-    delete[] line;
-    line = nullptr;
+   // delete[] line;
+    //line = nullptr;
 
     if (!reduce || GlobalV::DRANK == 0)
     {
