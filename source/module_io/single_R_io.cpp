@@ -55,7 +55,7 @@ std::vector<T> line(GlobalV::NLOCAL);
             {
                 for (auto &value : iter->second)
                 {
-                    line.at(value.first) = value.second;//line[value.first] = value.second;
+                    line.data.at(value.first) = value.second;//line[value.first] = value.second;
                 }
             }
         }
