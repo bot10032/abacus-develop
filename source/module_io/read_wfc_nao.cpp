@@ -138,11 +138,11 @@ int ModuleIO::read_wfc_nao_complex(
             error = 3;
         }
 
-        ctot = new std::complex<double>*[nbands_g];
-        for (int i=0; i<nbands_g; i++)
+        std::vector<std::vector<double>> ctot(nbands_g, std::vector<double>(nlocal_g));
+       /* for (int i=0; i<nbands_g; i++)
         {
             ctot[i] = new std::complex<double>[nlocal_g];
-        }
+        }*/
 
         for (int i=0; i<nbands_g; ++i)
         {
@@ -183,11 +183,11 @@ int ModuleIO::read_wfc_nao_complex(
     if (GlobalV::DRANK==0)
     {
         // delte the ctot
-        for (int i=0; i<nbands_g; i++)
+       /* for (int i=0; i<nbands_g; i++)
         {
             delete[] ctot[i];
         }
-        delete[] ctot;
+        delete[] ctot;*/
     }
 
 	//---------
