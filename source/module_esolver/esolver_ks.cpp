@@ -94,7 +94,7 @@ void ESolver_KS<T, Device>::init(Input& inp, UnitCell& ucell)
 		double ** atom_coord = nullptr;
 		std::vector<std::string> filename_list;
 
-		atom_type = new int [ucell.nat];
+		std::vector<int> atom_type(ucell.nat);
 		atom_coord = new double *[ucell.nat];
 		filename_list.resize(ucell.ntype);
 
@@ -153,7 +153,7 @@ void ESolver_KS<T, Device>::init(Input& inp, UnitCell& ucell)
 			delete [] atom_coord[iat];
 		}
 		delete [] atom_coord;
-		delete [] atom_type;
+		//delete [] atom_type;
 	}
 #endif
 	/// End PAW
