@@ -160,7 +160,7 @@ int ModuleIO::read_wfc_nao_complex(
             for (int j=0; j<nlocal_g; ++j)
             {
                 ifs >> a >> b;
-				ctot[i][j]=std::complex<double>(a,b);
+				ctot[i][j].data=std::complex<double>(a,b);
 				//std::cout << ctot[i][j] << " " << std::endl;
             }
         }
